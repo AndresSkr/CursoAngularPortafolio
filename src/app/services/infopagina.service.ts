@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { infoequipo } from '../interfaces/info-equipoInterfaces';
-import { infoPagina } from '../interfaces/info-pagina.interface';
+import { infoPagina } from '../interfaces/info-paginainterface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,16 +21,13 @@ export class InfopaginaService {
     .subscribe((res: infoPagina) => {
       this.cargada = true;
       this.info = res;
-      console.log(res);
     })
   }
 
   private cargarEquipo() {
     this.http.get('https://angular-html-daa33.firebaseio.com/equipo.json')
     .subscribe((res: infoequipo) => {
-      this.cargada = true;
       this.equipo = res;
-      console.log(res);
     })
   }
   
